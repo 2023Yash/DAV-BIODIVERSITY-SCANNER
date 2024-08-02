@@ -53,3 +53,13 @@ header * {
         display: none;
     }
 }
+
+@media only screen and (max-width: 426px) {
+    #top-header h1, p {
+        display: none;
+    }
+
+    #microsoft-logo, #dav-logo {
+        display: inline-block;
+    }
+}
