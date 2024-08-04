@@ -113,7 +113,7 @@ header nav div button:not(button[onclick="search()"]) {
     border-radius: 100vw;
 }
 
-header nav div button[onclick="search()"] {
+header nav div button[onclick="search()"], button[onclick="resNav()"] {
     width: 35px;
     height: 35px;
     border-radius: 50%;
@@ -130,6 +130,16 @@ header nav div button[onclick="search()"]:hover {
     background-color: #812839;
 }
 
+#small-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70vw;
+    height: 100dvh;
+    background-color: var(--whitegolden);
+    z-index: 30;
+}
+
 /* Main */
 
 main {
@@ -143,30 +153,21 @@ main {
     width: 30%;
     height: 39vw;
     background-color: var(--maroon);
+    border-radius: 10px;
 }
 
-.container {
-    width: 100%;
-    max-width: 500px;
-    margin: 5px;
+#QR-text, #side h1, #side a {
+    color: white;
+    text-align: center;
+    margin: 10px;
 }
 
-.container h1 {
-    color: #ffffff;
-}
-
-.section {
-    background-color: #ffffff;
-    padding: 50px 30px;
-    border: 1.5px solid #b2b2b2;
-    border-radius: 0.25em;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
-}
 
 #my-qr-reader {
     padding: 20px !important;
     border: 1.5px solid #b2b2b2 !important;
     border-radius: 8px;
+    margin-inline: 5px;
 }
 
 #my-qr-reader img[alt="Info icon"] {
@@ -178,7 +179,7 @@ main {
     height: 100px !important;
 }
 
-button {
+#my-qr-reader button {
     padding: 10px 20px;
     border: 1px solid #b2b2b2;
     outline: none;
@@ -192,7 +193,7 @@ button {
     transition: 0.3s background-color;
 }
 
-button:hover {
+#my-qr-reader button:hover {
     background-color: #008000;
 }
 
@@ -207,6 +208,10 @@ video {
     border-radius: 0.25em;
 }
 
+#my-qr-reader__dashboard {
+    display: none;
+}
+
 /* slideshow */
 
 .slideshow-main {
@@ -219,13 +224,13 @@ video {
     position: relative;
     background-color: var(--whitegolden);
 }
-  
+
 .mySlides {
     display: none;
     width: 64vw;
     height: 36vw;
 }
-  
+
 .prev, .next {
     cursor: pointer;
     position: absolute;
@@ -240,16 +245,16 @@ video {
     border-radius: 0 3px 3px 0;
     user-select: none;
 }
-  
+
 .next {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
-  
+
 .prev:hover, .next:hover {
     background-color: rgba(0,0,0,0.8);
 }
-  
+
 .text {
     color: #f2f2f2;
     font-size: 15px;
@@ -260,7 +265,7 @@ video {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.534);
 }
-  
+
 .numbertext {
     color: #f2f2f2;
     font-size: 12px;
@@ -268,8 +273,9 @@ video {
     position: absolute;
     top: 0;
     background-color: rgba(0, 0, 0, 0.534);
+    border-radius: 10px;
 }
-  
+
 .dot {
     cursor: pointer;
     height: 15px;
@@ -280,16 +286,16 @@ video {
     display: inline-block;
     transition: background-color 0.6s ease;
 }
-  
+
 .active, .dot:hover {
     background-color: #717171;
 }
-  
+
 .fade {
     animation-name: fade;
     animation-duration: 1.5s;
 }
-  
+
 @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
@@ -299,4 +305,167 @@ video {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+}
+
+.footer-distributed{
+    background: var(--maroon);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+    width: 40%;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+    color:  #ffffff;
+  margin: 20px 0 12px;
+  padding: 0;
+}
+
+.footer-distributed .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    font-weight:400;
+    text-decoration: none;
+    color:  inherit;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+    width: 35%;
+}
+
+.footer-distributed .footer-center i{
+    background-color:  var(--skyishblue);
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+    display: inline-block;
+    color: #ffffff;
+    font-weight:400;
+    vertical-align: middle;
+    margin:0;
+}
+
+.footer-distributed .footer-center p span{
+    display:block;
+    font-weight: normal;
+    font-size:14px;
+    line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+    color:  var(--skyishblue);
+    text-decoration: none;;
+}
+
+.footer-distributed .footer-links a:before {
+    content: "|";
+    font-weight:300;
+    font-size: 20px;
+    left: 0;
+    color: #fff;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+    content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+    line-height: 20px;
+    color:  #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+    display: block;
+    color:  #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:  var(--skyishblue);
+    border-radius: 2px;
+    
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+    
+    .footer-distributed{
+    font: bold 14px sans-serif;
+  }
+  
+  .footer-distributed .footer-left,
+  .footer-distributed .footer-center,
+  .footer-distributed .footer-right{
+      display: block;
+      width: 100%;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .footer-distributed .footer-center i{
+        margin-left: 0;
+    }
+    
 }

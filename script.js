@@ -30,5 +30,16 @@ function showSlides() {
   slideIndex++;
   if (slideIndex > slides.length) {slideIndex = 1}
   slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+  setTimeout(showSlides, 2000);
+}
+let smallNav = document.getElementById("small-nav");
+
+smallNav.style.display = "none"
+
+function resNav() {
+    if (smallNav.style.display == "block") {
+        smallNav.style.display = "none"
+    } else {
+        smallNav.style.display = "block"
+    }
 }
