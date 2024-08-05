@@ -74,7 +74,7 @@ header nav {
     background-color: var(--whitegolden);
 }
 
-#links {
+.links {
     background-color: var(--maroon);
     width: 55%;
     display: flex;
@@ -84,12 +84,23 @@ header nav {
     border: 3px solid white;
 }
 
-#links * {
+.links * {
     color: white;
     padding: 5px;
     width: 100%;
     text-align: center;
     text-decoration: none;
+}
+
+nav:not(header nav) {
+    padding: 100px 50px;
+}
+
+nav .links:not(header nav .links) {
+    flex-direction: column;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 @keyframes horizontal-shaking {
@@ -100,7 +111,7 @@ header nav {
     100% { transform: translateX(0) }
 }
 
-#links *:hover {
+.links *:hover {
     text-decoration: underline;
     animation: 300ms horizontal-shaking ease-in-out;
 }
@@ -131,7 +142,7 @@ header nav div button[onclick="search()"]:hover {
 }
 
 #small-nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 70vw;
@@ -468,4 +479,32 @@ video {
         margin-left: 0;
     }
     
+    #top-header div span {
+        font-size: 1.8vw;
+    }
+}
+
+@media (max-width: 617px) {
+    header nav .links {
+        display: none;
+    }
+
+    button[onclick="resNav()"] {
+        display: inline !important;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    #side {
+        width: 100%;
+        height: 90vw;
+    }
+}
+
+@media (max-width: 774px) {
+    main {
+        flex-direction: column;
+    }
 }

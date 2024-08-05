@@ -34,12 +34,14 @@ function showSlides() {
 }
 let smallNav = document.getElementById("small-nav");
 
-smallNav.style.display = "none"
+smallNav.style.display = "none";
 
 function resNav() {
     if (smallNav.style.display == "block") {
-        smallNav.style.display = "none"
+        smallNav.style.display = "none";
+        document.getElementById("body").style.overflowY = "scroll";
     } else {
-        smallNav.style.display = "block"
+        smallNav.style.display = "block";
+        document.getElementById("body").style.overflowY = "hidden";
     }
 }
