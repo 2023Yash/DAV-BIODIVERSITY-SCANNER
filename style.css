@@ -507,4 +507,19 @@ video {
     main {
         flex-direction: column;
     }
+
+    #side {
+        width: 100vw;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .mySlides {
+        width: 100vw;
+        height: 50vw;
+    }
+
+    #slideshow-main {
+        border-radius: 0px !important;
+    }
 }
