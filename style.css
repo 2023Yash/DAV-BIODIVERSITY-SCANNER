@@ -1,13 +1,18 @@
-/* basic configs */
+/*  basic configs   */
 /* DO NOT CHANGE */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap');
 
 :root {
-    --whitesiler: #ededed;
+    --whitesiler: #f1f1f1;
     --maroon: #ab3349;
     --whitegolden: #fff7d1;
     --skyishblue: #66ccff;
+    /* accented icons */
+    --accented-whitesiler: #dadada;
+    --accented-maroon: #8a293a;
+    --accented-whitegolden: #ffee98;
+    --accented-skyishblue: #3dbeff;
 }
 
 * {
@@ -20,6 +25,10 @@
     transition: 300ms all;
 }
 
+a {
+    text-decoration: none;
+}
+
 button {
     cursor: pointer;
 }
@@ -28,117 +37,69 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 body {
     height: 100vh;
-    background-color: white;
-}
-
-/* Header */
-
-header * {
-    font-family: "Poppins", sans-serif;
-}
-
-#dav-logo {
-    width: 10vw;
-}
-
-#microsoft-logo {
-    width: 8vw;
-}
-
-#top-header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
     background-color: var(--whitesiler);
 }
 
-#top-header div {
-    display: flex;
-}
 
-#top-header div span {
-    font-size: 1.2vw;
-}
+/*  header  */
+/* Upper Header */
 
-header nav {
+header > div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 10px;
-    background-color: var(--whitegolden);
 }
 
-.links {
+header > div img {
+    width: 10vw;
+}
+
+header > div > div > * {
+    font-size: 1.5vw;
+}
+
+/* Nav Bar */
+
+header nav, #small-nav div {
     background-color: var(--maroon);
-    width: 55%;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+header nav div:has(a), #small-nav div {
+    background-color: var(--whitegolden);
     border-radius: 100vw;
-    border: 3px solid white;
-}
-
-.links * {
-    color: white;
-    padding: 5px;
-    width: 100%;
-    text-align: center;
-    text-decoration: none;
-}
-
-nav:not(header nav) {
-    padding: 100px 50px;
-}
-
-nav .links:not(header nav .links) {
-    flex-direction: column;
-    width: fit-content;
     padding: 10px;
-    border-radius: 10px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-@keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateX(5px) }
-    50% { transform: translateX(-5px) }
-    75% { transform: translateX(5px) }
-    100% { transform: translateX(0) }
+header nav div a {
+    color: black;
 }
 
-.links *:hover {
+header nav div a:hover {
     text-decoration: underline;
-    animation: 300ms horizontal-shaking ease-in-out;
 }
 
-header nav div button:not(button[onclick="search()"]) {
+header nav div button {
     background-color: var(--skyishblue);
     color: white;
-    border: 3px solid;
-    padding: 7.5px;
+    padding: 10px;
+    border: none;
     border-radius: 100vw;
 }
 
-header nav div button[onclick="search()"], button[onclick="resNav()"] {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 3px solid white;
-    background-color: var(--maroon);
-    color: white;
-}
-
-header nav div button:not(button[onclick="search()"]):hover {
-    background-color: #57aeda;
-}
-
-header nav div button[onclick="search()"]:hover {
-    background-color: #812839;
+header nav div button:hover {
+    background-color: var(--accented-skyishblue);
 }
 
 #small-nav {
@@ -149,6 +110,19 @@ header nav div button[onclick="search()"]:hover {
     height: 100dvh;
     background-color: var(--whitegolden);
     z-index: 30;
+    padding-top: 30%;
+}
+
+#small-nav div {
+    margin: auto;
+    background-color: var(--maroon);
+    width: min-content;
+    padding: 100px 30px;
+    flex-direction: column;
+}
+
+#small-nav div a {
+    color: white;
 }
 
 /* Main */
@@ -335,29 +309,13 @@ video {
     vertical-align: top;
 }
 
-/* Footer left */
-
-.footer-distributed .footer-left{
-    width: 40%;
-}
-
-/* Footer links */
-
-.footer-distributed .footer-links{
-    color:  #ffffff;
-  margin: 20px 0 12px;
-  padding: 0;
-}
-
-.footer-distributed .footer-links a{
-    display:inline-block;
-    line-height: 1.8;
-    font-weight:400;
-    text-decoration: none;
-    color:  inherit;
-}
-
 /* Footer Center */
+
+footer {
+    background-color: var(--maroon);
+    display: flex;
+    padding: 100px 3vw;
+}
 
 .footer-distributed .footer-center{
     width: 35%;
@@ -458,7 +416,7 @@ video {
     margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
+/*  Responsive  */
 
 @media (max-width: 880px) {
     
@@ -484,42 +442,22 @@ video {
     }
 }
 
-@media (max-width: 617px) {
-    header nav .links {
-        display: none;
-    }
-
-    button[onclick="resNav()"] {
-        display: inline !important;
-    }
-
-    main {
-        flex-direction: column;
-    }
-
-    #side {
-        width: 100%;
-        height: 90vw;
+@media only screen and (max-width: 670px) {
+    header nav div a, button {
+        line-height: 0.7;
     }
 }
 
-@media (max-width: 774px) {
-    main {
-        flex-direction: column;
+@media only screen and (max-width: 470px) {
+    header nav div:has(a) {
+        width: auto;
     }
-
-    #side {
-        width: 100vw;
-        height: auto;
-        padding-bottom: 10px;
+    
+    header nav div a:has(i) {
+        display: inline !important;
     }
-
-    .mySlides {
-        width: 100vw;
-        height: 50vw;
-    }
-
-    #slideshow-main {
-        border-radius: 0px !important;
-    }
+    
+    header nav div a:not(i) {
+        display: none;
+    } 
 }
